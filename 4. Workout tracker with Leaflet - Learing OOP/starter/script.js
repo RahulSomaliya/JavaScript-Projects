@@ -78,6 +78,7 @@ const inputDistance = document.querySelector('.form__input--distance');
 const inputDuration = document.querySelector('.form__input--duration');
 const inputCadence = document.querySelector('.form__input--cadence');
 const inputElevation = document.querySelector('.form__input--elevation');
+// const editWorkoutIcon = document.querySelector('.workout__edit__icon');
 
 // DESIGNING THE APP ARCHITECTURE WITH OOP
 // App will be the main class of the entire project,
@@ -103,6 +104,12 @@ class App {
 
     // adding event listner for containerWorkouts
     containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+
+    // adding event listner for containerWorkouts
+    containerWorkouts.addEventListener('click', this._moveToPopup.bind(this));
+
+    // Adding event listner for workout edit
+    // editWorkoutIcon.addEventListener('click', this._editWorkout.bind(this));
   }
 
   _getPosition() {
@@ -168,15 +175,14 @@ class App {
   }
 
   _newWorkout(event) {
-    // helper functions for validating if inputs are number
+    // helper function for validating if inputs are number
     const validInputs = (...inputs) =>
       inputs.every(input => Number.isFinite(input));
 
-    // helper functions for positive numbers
+    // helper function for positive numbers
     const allPositive = (...inputs) => inputs.every(input => input > 0);
 
-    // handle on add new workout submit click (there is no submit button but his is cool right
-    // we're handling on enter click here)
+    // handle on add new workout submit click (there is no submit button but his is cool right we're handling on enter click here)
     event.preventDefault();
 
     // Get data from form
@@ -226,6 +232,15 @@ class App {
 
     // Set local storage to all workouts
     this._setLocalStorage();
+
+    console.log(`💎 this.#workouts: `, this.#workouts);
+  }
+
+  _editWorkout(event) {
+    event.preventDefault();
+    console.log(`💎 this: `, this);
+    console.log(`💎 event: `, event);
+    console.log(`💎 event.target: `, event.target);
   }
 
   _renderWorkoutMarker(workout) {
@@ -335,4 +350,4 @@ class App {
   }
 }
 
-const app = new App
+const app = new App();

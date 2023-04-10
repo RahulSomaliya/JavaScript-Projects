@@ -29,7 +29,7 @@ body {
   overscroll-behavior-y: none;
 
   background-color: #fff;
-  padding: 2.5rem;
+  /* padding: 2.5rem; */
 
   display: flex;
 }
@@ -77,6 +77,7 @@ a:visited {
   grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 0.75rem 1.5rem;
 }
+
 .workout--running {
   border-left: 5px solid var(--color-brand--2);
 }
@@ -88,11 +89,26 @@ a:visited {
   font-size: 1.7rem;
   font-weight: 600;
   grid-column: 1 / -1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .workout__details {
   display: flex;
   align-items: baseline;
+}
+
+/* line number 104 and 111 is to be uncommented */
+.workout__edit__icon {
+  /* display: none; */
+  background-color: Transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.workout:hover .workout__edit__icon {
+  /* display: block; */
 }
 
 .workout__icon {
